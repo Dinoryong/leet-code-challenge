@@ -6,4 +6,3 @@ class Solution:
             a[(i + k) % n] = nums[i]
             
         nums[:] = a
-        
