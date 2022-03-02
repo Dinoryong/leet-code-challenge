@@ -1,12 +1,17 @@
 class Solution:
     def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
-        original = []
-        for i in mat:
-            for j in i:
-                original.append(j)
-        if r*c != len(original):
+        temp = []
+        matrix = []
+        for i in range(len(mat)):
+            for j in range(len(mat[0])):
+                temp.append(mat[i][j])
+        # print(temp)
+        if r*c == len(temp):
+            for i in range(0,len(temp),c):
+                matrix.append(temp[i:i+c])
+            return matrix
+        
+        # otherwise return the original matrix
+        else:
             return mat
-        lst = []
-        for i in range(0,len(original),c):
-            lst.append(original[i:i+c])
-        return lst
+ 
