@@ -1,23 +1,14 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        
-        
-        @cache
-        
-        def helper(start):
-            if nums[start]>=(n-1)-start:
-                return True
-            
-            if start==n-1:
-                return True
-            
-            for i in range(1,nums[start]+1):
-                if helper(start+i):
-                    return True
-            
-            
+        if not nums:
             return False
-        
-        n=len(nums)
-        return helper(0)
-        
+        i = 0
+        max_index = nums[i]
+        while i < len(nums) and i <= max_index:
+            new_index = nums[i]+i
+            max_index = max(max_index, new_index)
+            i += 1
+        if i == len(nums):
+            return True
+        else:
+            return False
